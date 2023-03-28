@@ -36,7 +36,7 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 	{
 		len = 0;
 		if (*(format + i) == '%')
-		
+		{
 			tmp = 0;
 			flags = handle_flags(format + i + 1, &tmp);
 			wid = handle_width(args, format + i + tmp + 1, &tmp);
