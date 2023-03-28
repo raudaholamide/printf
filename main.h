@@ -58,32 +58,6 @@ typedef struct flag_s
 	unsigned char value;
 } flag_t;
 
-/**
- * struct flags - struct containing flags to "turn on"
- * when a flag specifier is passed to _printf()
- * @plus: flag for the '+' character
- * @space: flag for the ' ' character
- * @hash: flag for the '#' character
- */
-typedef struct flags
-{
-	int plus;
-	int space;
-	int hash;
-} flags_t;
-
-/**
- * struct printHandler - struct to choose the right function depending
- * on the format specifier passed to _printf()
- * @c: format specifier
- * @f: pointer to the correct printing function
- */
-typedef struct printHandler
-{
-	char c;
-	int (*f)(va_list ap, flags_t *f);
-} ph;
-
 int _printf(const char *format, ...);
 
 /* Conversion Specifier Functions */
@@ -122,8 +96,6 @@ int handle_precision(va_list args, const char *modifier, char *index);
 unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char, int, int, unsigned char);
 
-int get_flag(char s, flags_t *f);
-
 /* Modifiers */
 unsigned int print_width(buffer_t *output, unsigned int printed,
 		unsigned char flags, int wid);
@@ -141,7 +113,4 @@ unsigned int convert_sbase(buffer_t *output, long int num, char *base,
 unsigned int convert_ubase(buffer_t *output, unsigned long int num, char *base,
 		unsigned char flags, int wid, int prec);
 
-
-
-
-#endif
+#endif /* MAIN_H */
