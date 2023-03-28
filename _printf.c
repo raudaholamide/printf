@@ -25,6 +25,8 @@ void cleanup(va_list args, buffer_t *output)
  * @format: Character string to print - may contain directives.
  * @output: A buffer_t struct containing a buffer.
  * @args: A va_list of arguments.
+ * @buffer_t : I can't say what it does
+ * @int: int is like a function
  *
  * Return: The number of characters stored to output.
  */
